@@ -1,0 +1,9 @@
+boto
+boto3
+botocore
+kubernetes
+Jinja2
+PyYAML
+requests
+urllib3
+websocket-client

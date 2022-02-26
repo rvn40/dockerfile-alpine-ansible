@@ -33,16 +33,16 @@ jobs:
       if: steps.branch-name.outputs.current_branch == 'main'
       uses: docker/build-push-action@v2
       with:
-      	context: .
-	file: ./Dockerfile
-	push: true
-	tags: ${{ secrets.DOCKER_HUB_USERNAME }}/ansible:latest
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/ansible:latest
 
     - name: Build and push in every branch but main
       if: steps.branch-name.outputs.current_branch != 'main'
       uses: docker/build-push-action@v2
       with:
-        context: .
-	file: ./Dockerfile
-	push: true
-	tags: ${{ secrets.DOCKER_HUB_USERNAME }}/ansible:${{ steps.branch-name.outputs.current_branch }}
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/ansible:${{ steps.branch-name.outputs.current_branch }}

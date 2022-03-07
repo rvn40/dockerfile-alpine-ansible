@@ -37,6 +37,7 @@ RUN apk --no-cache add \
         cargo \
         openssl-dev \
         libressl-dev \
+        awscli \
         build-base && \
     pip3 install --upgrade pip wheel boto boto3 && \
     pip3 install --upgrade cryptography cffi && \
@@ -53,7 +54,8 @@ RUN mkdir /ansible && \
     mkdir -p /etc/ansible && \
     echo 'localhost' > /etc/ansible/hosts && \
     ansible-galaxy collection install kubernetes.core && \
-    ansible-galaxy collection install cloud.common
+    ansible-galaxy collection install cloud.common && \
+    ansible-galaxy collection install community.aws
 
 WORKDIR /ansible
 

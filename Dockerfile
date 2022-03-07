@@ -37,9 +37,8 @@ RUN apk --no-cache add \
         cargo \
         openssl-dev \
         libressl-dev \
-        awscli \
         build-base && \
-    pip3 install --upgrade pip wheel boto boto3 && \
+    pip3 install --upgrade pip wheel boto boto3 awscli && \
     pip3 install --upgrade cryptography cffi && \
     pip3 install ansible-core==${ANSIBLE_VERSION} ansible && \
     pip3 install mitogen ansible-lint jmespath && \
